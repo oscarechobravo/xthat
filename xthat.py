@@ -1,6 +1,8 @@
 import ast
 import random
 from pathlib import Path
+#from ascii_magic import AsciiArt #converting images to Asciiart :D 
+from art import *
 
 DICNAME = "xthat.dic"
 OUTFILE = "log.txt"
@@ -22,7 +24,7 @@ def save_prompt(prompt: str, response: str):
 def main():
     line_list = load_lines(DICNAME)
     prompt = line_list[random.randrange(len(line_list)-1)].upper()
-    print(prompt + " THAT")
+    print(text2art(prompt + " THAT", font="small"))
     print("Enter a prompt")
     response = input()
     print("You said: " + response)
