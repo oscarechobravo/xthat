@@ -23,18 +23,20 @@ def save_prompt(prompt: str, response: str):
         f.write("\""+prompt+"\",\""+response+"\"")
     print("Response recorded.")
         
+def print_game_to_screen():
+    ##print the game with ascii art back so creator can copy pasta and take it away
+    return
 
 def main():
-    print(text2art("Welcome \nto \nxThat."))
+    print(text2art("\nxThat."))
     print("xThat is a playful mini game generator for anyone looking to create their own mini game.\n\nTo make a game we will:\n1. provide you with a title for your game\n2. prompt you for a subtitle\n3. prompt you for 4 bullet points for game play.")
     #ask if they want an example - then show them screw that.
+    val = input("\n\nAre you ready to continue: ")
     line_list = load_lines(DICNAME)
     prompt = line_list[random.randrange(len(line_list)-1)].upper()
     print(text2art(prompt + " THAT", font="small"))
-    print("Enter a subtitle")
-    subtitle = input()
-    print("Enter a prompt")
-    response = input()
+    subtitle = input("Enter a subtitle:")
+    response = input("Enter a prompt:")
     print("You said: " + response)
     save_prompt(prompt, subtitle, response)
 
